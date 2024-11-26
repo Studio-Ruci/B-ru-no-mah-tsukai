@@ -86,9 +86,6 @@ public class ObjectCollector : MonoBehaviour
 
         // Ensure the size of the object stays the same while detached
         objectTransform.localScale = originalObjectSizes[objectCollider];
-
-        // Debugging: Confirm detachment and size reset
-        Debug.Log("Detaching object: " + objectTransform.name + ", Size: " + objectTransform.localScale);
     }
 
     public void GrowKatamari()
@@ -102,9 +99,6 @@ public class ObjectCollector : MonoBehaviour
 
             // Update the collider size to match the new katamari size
             collectionCollider.radius = currentSize / 2;
-
-            // Debugging: Confirm growth
-            Debug.Log("Katamari has grown to size: " + currentSize);
 
             // Disable growth flag to prevent further immediate growth
             canGrow = false;
@@ -122,11 +116,7 @@ public class ObjectCollector : MonoBehaviour
                 Vector3 originalSize = originalObjectSizes[obj];
 
                 // Reset the object's size to its original size every frame
-                Transform objTransform = obj.transform;
-                objTransform.localScale = originalSize;
-
-                // Log for debugging
-                Debug.Log("Resetting size of object: " + obj.transform.name + " to " + originalSize);
+                obj.transform.localScale = originalSize;
             }
         }
     }
@@ -159,9 +149,6 @@ public class ObjectCollector : MonoBehaviour
             Collider firstObject = attachedObjects.Dequeue();
             RemoveObjectFromKatamari(firstObject);
         }
-
-        // Debugging: Confirm reattachment
-        Debug.Log("Reattaching object: " + objectCollider.transform.name);
     }
 
     public void RemoveObjectFromKatamari(Collider objectCollider)
@@ -182,8 +169,11 @@ public class ObjectCollector : MonoBehaviour
 
         // Optionally destroy the object (or pool it for reuse)
         Destroy(objectCollider.gameObject);
+    }
 
-        // Debugging: Confirm removal
-        Debug.Log("Removed object from katamari: " + objectTransform.name);
+    // Public getter for currentSize
+    public float GetCurrentSize()
+    {
+        return currentSize;
     }
 }
