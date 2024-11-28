@@ -15,6 +15,9 @@ public class Size_Manager : MonoBehaviour
     // Public starting display value, editable in the Inspector
     public float startingDisplayValue = 0f;
 
+    // Customizable suffix for the display text (e.g., "cm", "meters", etc.)
+    public string sizeSuffix = "cm";
+
     void Update()
     {
         // Check if references are properly assigned
@@ -36,7 +39,7 @@ public class Size_Manager : MonoBehaviour
         // Manipulate the display value: apply multiplier and add the starting display value
         float displaySize = (currentSize * sizeMultiplier) + startingDisplayValue;
 
-        // Format the number and append "cm"
-        sizeText.text = $"{displaySize:F1} cm";  // Display with one decimal place
+        // Format the number and append the customizable suffix
+        sizeText.text = $"{displaySize:F1} {sizeSuffix}";  // Display with one decimal place
     }
 }

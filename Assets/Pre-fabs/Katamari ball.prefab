@@ -337,7 +337,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3616127045453884595}
   - component: {fileID: 4534206130953920689}
-  - component: {fileID: 6187456501819645569}
   - component: {fileID: 3469730592213865414}
   - component: {fileID: 9080454630085050383}
   - component: {fileID: 7011375150024672442}
@@ -380,22 +379,8 @@ MonoBehaviour:
   katamari: {fileID: 3616127045453884595}
   collectionCollider: {fileID: 1264901705532564743}
   offset: 0.1
-  minOffset: 0.05
-  maxOffset: 0.5
-  maxCollectiblePercentage: 98
   growthRate: 0.1
---- !u!114 &6187456501819645569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3977369928848505130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8168fc8994b4024fa37fc2090274145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  maxAttachedObjects: 60
 --- !u!114 &3469730592213865414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torqueForce: 10
-  movementSpeed: 2
+  rollSensitivity: 0.5
 --- !u!54 &9080454630085050383
 Rigidbody:
   m_ObjectHideFlags: 0
